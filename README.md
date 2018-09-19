@@ -1,4 +1,4 @@
-# addin-hello-world
+# skyux-spa-addin-hello-world
 
 This SPA demonstrates a SKY Add-in implementation using SKY UX, and includes a tile that can be shown on any page as well as a few examples
 of launching modals (implemented in separate web applications).
