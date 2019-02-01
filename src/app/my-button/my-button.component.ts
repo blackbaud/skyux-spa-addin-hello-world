@@ -17,7 +17,7 @@ export class MyButtonComponent implements OnInit {
         init: (args: AddinClientInitArgs) => {
           args.ready({
             showUI: true,
-            title: 'Scan check',
+            title: 'Add customer',
             buttonConfig: { style: 1 }
           });
         },
