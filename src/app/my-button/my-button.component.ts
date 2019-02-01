@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
 import { AddinClient } from '@blackbaud/sky-addin-client';
+import { AddinButtonStyle } from '@blackbaud/sky-addin-client/src/addin/client-interfaces/addin-button-style';
 
 @Component({
   selector: 'my-button',
@@ -18,7 +19,7 @@ export class MyButtonComponent implements OnInit {
           args.ready({
             showUI: true,
             title: 'Add customer',
-            buttonConfig: { style: 1 }
+            buttonConfig: { style: AddinButtonStyle.Add }
           });
         },
         buttonClick: () => {
