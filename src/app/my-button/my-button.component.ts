@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
 import { AddinClient } from '@blackbaud/sky-addin-client';
-import { AddinButtonStyle } from '@blackbaud/sky-addin-client/src/addin/client-interfaces/addin-button-style';
+import { AddinButtonStyle } from '@blackbaud/sky-addin-client';
 
 @Component({
   selector: 'my-button',
