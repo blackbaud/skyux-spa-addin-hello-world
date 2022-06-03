@@ -24,7 +24,7 @@ import {
 } from './not-found.component';
 
 const routes: Routes = [
-  { path: '', children: [
+  { path: 'addin-hello-world', children: [
     { path: '', component: RootRouteIndexComponent },
     { path: 'my-button', component: MyButtonRouteIndexComponent },
     { path: 'my-tile', component: MyTileRouteIndexComponent }
