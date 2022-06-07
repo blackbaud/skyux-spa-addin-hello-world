@@ -16,12 +16,11 @@ import {
  * their respective feature modules, and this module should be removed.
  */
 @NgModule({
-  exports: [
-    AppSkyModule
-  ],
-  providers: [
-    AddinClientService
-  ],
-  entryComponents: []
+    exports: [
+        AppSkyModule
+    ],
+    providers: [
+        AddinClientService
+    ]
 })
 export class AppExtrasModule { }
