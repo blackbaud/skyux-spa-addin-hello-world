@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "12.2.16",
     "@angular/router": "12.2.16",
     "@blackbaud/sky-addin-client": "1.1.3",
-    "@blackbaud/skyux-lib-addin-client": "3.1.1",
+    "@blackbaud/skyux-lib-addin-client": "5.0.0",
     "@skyux/assets": "5.9.7",
     "@skyux/config": "5.9.7",
     "@skyux/core": "5.9.7",
