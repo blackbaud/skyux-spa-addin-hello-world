@@ -2,5 +2,9 @@
   "tile_header": {
     "message": "SKY UX Add-in Hello World",
     "_description": "Header for the add-in tile"
+  },
+  "skyux_page_not_found_iframe_title": {
+    "message": "Page not found",
+    "_description": "A string value to represent the Page Not Found iframe title attribute."
   }
 }

@@ -17,7 +17,7 @@ import {
 } from '@skyux/modals';
 
 @Component({
-  selector: 'my-button',
+  selector: 'app-my-button',
   templateUrl: './my-button.component.html'
 })
 export class MyButtonComponent implements OnInit {
