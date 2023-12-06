@@ -48,7 +48,7 @@ export class MyButtonComponent implements OnInit {
       lastName: 'Doe'
     };
 
-    this.showModal('https://host.nxt.blackbaud.com/addin-modal-demo/add-customer', context);
+    this.showModal('https://localhost:4200/add-customer', context);
   }
 
   private showModal(url: string, context: any) {

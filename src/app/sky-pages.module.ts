@@ -28,6 +28,10 @@ import {
 } from '@skyux/assets';
 
 import {
+  SkyThemeService
+} from '@skyux/theme';
+
+import {
   MyButtonComponent
 } from './my-button/my-button.component';
 
@@ -100,7 +104,8 @@ import {
           return undefined;
         }
       }
-    }
+    },
+    SkyThemeService
   ]
 })
 export class SkyPagesModule { }

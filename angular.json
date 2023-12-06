@@ -115,9 +115,5 @@
         }
       }
     }
-  },
-  "defaultProject": "addin-hello-world",
-  "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
   }
 }
