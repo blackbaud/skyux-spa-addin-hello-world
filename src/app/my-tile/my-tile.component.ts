@@ -21,10 +21,10 @@ import {
   styleUrls: ['./my-tile.component.scss']
 })
 export class MyTileComponent implements OnInit {
-  public environmentId: string;
-  public context: string;
-  public userIdentityToken: string;
-  public modalResponse: string;
+  public environmentId: string | undefined;
+  public context: string | undefined;
+  public userIdentityToken: string | undefined;
+  public modalResponse: string | undefined;
 
   constructor(
     private addinClientService: AddinClientService
@@ -78,7 +78,7 @@ export class MyTileComponent implements OnInit {
       lastName: 'Doe'
     };
 
-    this.showModal('https://host.nxt.blackbaud.com/addin-modal-demo/add-customer', context);
+    this.showModal('https://localhost:4200/add-customer', context);
   }
 
   private showModal(url: string, context: any) {
