@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "addin-hello-world:build:production"
+              "buildTarget": "addin-hello-world:build:production"
             },
             "development": {
-              "browserTarget": "addin-hello-world:build:development"
+              "buildTarget": "addin-hello-world:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "addin-hello-world:build"
+            "buildTarget": "addin-hello-world:build"
           }
         },
         "test": {
