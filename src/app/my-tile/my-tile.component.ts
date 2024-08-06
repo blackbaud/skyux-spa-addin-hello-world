@@ -68,7 +68,7 @@ export class MyTileComponent implements OnInit {
       someValue: 'this value was passed to the modal'
     };
 
-    this.showModal('https://blackbaudaddinhelloworld.azurewebsites.net/helloworldmodal.html', context);
+    this.showModal('https://localhost:44358/helloworldmodal.html', context);
   }
 
   public showSkyUxModal() {
