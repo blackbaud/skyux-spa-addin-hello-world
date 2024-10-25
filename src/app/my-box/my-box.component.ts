@@ -5,11 +5,11 @@ import { AddinClientService } from '@blackbaud/skyux-lib-addin-client';
 import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
 
 @Component({
-  selector: 'app-my-record-box',
-  templateUrl: './my-record-box.component.html',
-  styleUrls: ['./my-record-box.component.scss'],
+  selector: 'app-my-box',
+  templateUrl: './my-box.component.html',
+  styleUrls: ['./my-box.component.scss'],
 })
-export class MyRecordBoxComponent implements OnInit {
+export class MyBoxComponent implements OnInit {
   public environmentId: string | undefined;
   public context: string | undefined;
   public userIdentityToken: string | undefined;

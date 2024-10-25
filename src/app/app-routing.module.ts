@@ -22,14 +22,14 @@ import {
 import {
   NotFoundComponent
 } from './not-found.component';
-import { MyRecordBoxRouteIndexComponent } from './my-record-box/index.component';
+import { MyBoxRouteIndexComponent } from './my-box/index.component';
 
 const routes: Routes = [
   { path: 'addin-hello-world', children: [
     { path: '', component: RootRouteIndexComponent },
     { path: 'my-button', component: MyButtonRouteIndexComponent },
     { path: 'my-tile', component: MyTileRouteIndexComponent },
-    { path: 'my-record-box', component: MyRecordBoxRouteIndexComponent }
+    { path: 'my-box', component: MyBoxRouteIndexComponent }
   ] },
   { path: '**', component: NotFoundComponent }
 ];

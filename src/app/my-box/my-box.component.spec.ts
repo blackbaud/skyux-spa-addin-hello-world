@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyRecordBoxComponent } from './my-record-box.component';
+import { MyBoxComponent } from './my-box.component';
 
-describe('MyRecordBoxComponent', () => {
-  let component: MyRecordBoxComponent;
-  let fixture: ComponentFixture<MyRecordBoxComponent>;
+describe('MyBoxComponent', () => {
+  let component: MyBoxComponent;
+  let fixture: ComponentFixture<MyBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MyRecordBoxComponent]
+      imports: [MyBoxComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MyRecordBoxComponent);
+    fixture = TestBed.createComponent(MyBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
