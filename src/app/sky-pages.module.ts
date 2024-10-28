@@ -58,6 +58,8 @@ import {
 import {
   AppExtrasModule
 } from './app-extras.module';
+import { MyBoxComponent } from './my-box/my-box.component';
+import { MyBoxRouteIndexComponent } from './my-box/index.component';
 
 /**
  * @deprecated This module was migrated from SKY UX Builder v.4.
@@ -78,6 +80,8 @@ import {
     MyButtonRouteIndexComponent,
     MyTileComponent,
     MyTileRouteIndexComponent,
+    MyBoxComponent,
+    MyBoxRouteIndexComponent,
     NotFoundComponent,
     RootRouteIndexComponent
   ],
