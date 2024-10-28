@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { AddinClientService } from '@blackbaud/skyux-lib-addin-client';
 
 import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
+import { SkyToastService, SkyToastType } from '@skyux/toast';
 
 @Component({
   selector: 'app-my-box',
@@ -13,6 +14,8 @@ export class MyBoxComponent implements OnInit {
   public environmentId: string | undefined;
   public context: string | undefined;
   public userIdentityToken: string | undefined;
+
+  readonly #toastSvc = inject(SkyToastService);
 
   constructor(private addinClientService: AddinClientService) {}
 
@@ -34,6 +37,10 @@ export class MyBoxComponent implements OnInit {
           ],
         },
       });
+
+      this.addinClientService.actionClick.subscribe((action: string) => {
+        this.actionClicked(action);
+      });
     });
   }
 
@@ -45,5 +52,11 @@ export class MyBoxComponent implements OnInit {
       .subscribe((token: string) => {
         this.userIdentityToken = token;
       });
+  }
+
+  private actionClicked(action: string): void {
+    this.#toastSvc.openMessage('Action clicked: ' + action, {
+      type: SkyToastType.Success,
+    });
   }
 }
