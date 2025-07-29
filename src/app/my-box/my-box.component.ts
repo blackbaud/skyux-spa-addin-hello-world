@@ -6,9 +6,10 @@ import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
 import { SkyToastService, SkyToastType } from '@skyux/toast';
 
 @Component({
-  selector: 'app-my-box',
-  templateUrl: './my-box.component.html',
-  styleUrls: ['./my-box.component.scss'],
+    selector: 'app-my-box',
+    templateUrl: './my-box.component.html',
+    styleUrls: ['./my-box.component.scss'],
+    standalone: false
 })
 export class MyBoxComponent implements OnInit {
   public environmentId: string | undefined;
