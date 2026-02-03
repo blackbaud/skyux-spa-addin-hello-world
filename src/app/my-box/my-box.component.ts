@@ -1,15 +1,17 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AddinClientService } from '@blackbaud/skyux-lib-addin-client';
 
 import { AddinClientInitArgs } from '@blackbaud/sky-addin-client';
 import { SkyToastService, SkyToastType } from '@skyux/toast';
+import { SkyAlertModule } from '@skyux/indicators';
 
 @Component({
     selector: 'app-my-box',
     templateUrl: './my-box.component.html',
     styleUrls: ['./my-box.component.scss'],
-    standalone: false
+    imports: [CommonModule, SkyAlertModule]
 })
 export class MyBoxComponent implements OnInit {
   public environmentId: string | undefined;
@@ -17,11 +19,10 @@ export class MyBoxComponent implements OnInit {
   public userIdentityToken: string | undefined;
 
   readonly #toastSvc = inject(SkyToastService);
-
-  constructor(private addinClientService: AddinClientService) {}
+  readonly #addinClientService = inject(AddinClientService);
 
   public ngOnInit() {
-    this.addinClientService.args.subscribe((args: AddinClientInitArgs) => {
+    this.#addinClientService.args.subscribe((args: AddinClientInitArgs) => {
       args.ready({
         showUI: true,
         title: 'Custom Box',
@@ -39,7 +40,7 @@ export class MyBoxComponent implements OnInit {
         },
       });
 
-      this.addinClientService.actionClick.subscribe((action: string) => {
+      this.#addinClientService.actionClick.subscribe((action: string) => {
         this.actionClicked(action);
       });
     });
@@ -48,7 +49,7 @@ export class MyBoxComponent implements OnInit {
   public getUserIdentityToken() {
     this.userIdentityToken = undefined;
 
-    this.addinClientService
+    this.#addinClientService
       .getUserIdentityToken()
       .subscribe((token: string) => {
         this.userIdentityToken = token;
