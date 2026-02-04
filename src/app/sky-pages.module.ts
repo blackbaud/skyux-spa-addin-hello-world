@@ -73,9 +73,7 @@ import { MyBoxRouteIndexComponent } from './my-box/index.component';
     ReactiveFormsModule,
     RouterModule,
     SkyAppLinkModule,
-    SkyI18nModule
-  ],
-  declarations: [
+    SkyI18nModule,
     MyButtonComponent,
     MyButtonRouteIndexComponent,
     MyTileComponent,

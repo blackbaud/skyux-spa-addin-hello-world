@@ -1,5 +1,6 @@
 import {
   Component,
+  inject,
   OnInit
 } from '@angular/core';
 
@@ -18,18 +19,14 @@ import {
 
 @Component({
     selector: 'app-my-button',
-    templateUrl: './my-button.component.html',
-    standalone: false
+    templateUrl: './my-button.component.html'
 })
 export class MyButtonComponent implements OnInit {
-
-  constructor(
-    private addinClientService: AddinClientService
-  ) {}
+  readonly #addinClientService = inject(AddinClientService);
 
   public ngOnInit() {
 
-    this.addinClientService.args.subscribe((args: AddinClientInitArgs) => {
+    this.#addinClientService.args.subscribe((args: AddinClientInitArgs) => {
       args.ready({
         showUI: true,
         title: 'Add customer',
@@ -37,7 +34,7 @@ export class MyButtonComponent implements OnInit {
       });
     });
 
-    this.addinClientService.buttonClick.subscribe(() => {
+    this.#addinClientService.buttonClick.subscribe(() => {
       this.showSkyUxModal();
     });
   }
@@ -54,7 +51,7 @@ export class MyButtonComponent implements OnInit {
 
   private showModal(url: string, context: any) {
 
-    this.addinClientService.showModal({
+    this.#addinClientService.showModal({
       url: url,
       context: context
     }).subscribe((modalResponse: SkyModalCloseArgs) => {

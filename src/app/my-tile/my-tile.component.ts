@@ -1,7 +1,9 @@
 import {
   Component,
+  inject,
   OnInit
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import {
   AddinClientService
@@ -14,12 +16,14 @@ import {
 import {
   SkyModalCloseArgs
 } from '@skyux/modals';
+import { SkyAlertModule } from '@skyux/indicators';
+import { SkyI18nModule } from '@skyux/i18n';
 
 @Component({
     selector: 'app-my-tile',
     templateUrl: './my-tile.component.html',
     styleUrls: ['./my-tile.component.scss'],
-    standalone: false
+    imports: [CommonModule, SkyAlertModule, SkyI18nModule]
 })
 export class MyTileComponent implements OnInit {
   public environmentId: string | undefined;
@@ -27,12 +31,10 @@ export class MyTileComponent implements OnInit {
   public userIdentityToken: string | undefined;
   public modalResponse: string | undefined;
 
-  constructor(
-    private addinClientService: AddinClientService
-  ) {}
+  readonly #addinClientService = inject(AddinClientService);
 
   public ngOnInit() {
-    this.addinClientService.args.subscribe((args: AddinClientInitArgs) => {
+    this.#addinClientService.args.subscribe((args: AddinClientInitArgs) => {
       this.environmentId = args.envId;
       this.context = JSON.stringify(args.context, undefined, 2);
 
@@ -46,19 +48,19 @@ export class MyTileComponent implements OnInit {
   public getUserIdentityToken() {
     this.userIdentityToken = undefined;
 
-     this.addinClientService.getUserIdentityToken().subscribe((token: string) => {
+     this.#addinClientService.getUserIdentityToken().subscribe((token: string) => {
        this.userIdentityToken = token;
      });
   }
 
   public invokeNavigation() {
-    this.addinClientService.navigate({
+    this.#addinClientService.navigate({
       url: 'https://www.blackbaud.com'
     });
   }
 
   public openHelp() {
-    this.addinClientService.openHelp({
+    this.#addinClientService.openHelp({
       helpKey: 'applications.html'
     });
   }
@@ -85,7 +87,7 @@ export class MyTileComponent implements OnInit {
   private showModal(url: string, context: any) {
     this.modalResponse = undefined;
 
-    this.addinClientService.showModal({
+    this.#addinClientService.showModal({
       url: url,
       context: context
     }).subscribe((modalResponse: SkyModalCloseArgs) => {
