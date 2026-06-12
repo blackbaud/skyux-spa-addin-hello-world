@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { AddinClientService } from '@blackbaud/skyux-lib-addin-client';
 
@@ -11,7 +11,7 @@ import { SkyAlertModule } from '@skyux/indicators';
     selector: 'app-my-box',
     templateUrl: './my-box.component.html',
     styleUrls: ['./my-box.component.scss'],
-    imports: [CommonModule, SkyAlertModule]
+    imports: [SkyAlertModule]
 })
 export class MyBoxComponent implements OnInit {
   public environmentId: string | undefined;

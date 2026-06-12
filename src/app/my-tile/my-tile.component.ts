@@ -3,7 +3,7 @@ import {
   inject,
   OnInit
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import {
   AddinClientService
@@ -23,7 +23,7 @@ import { SkyI18nModule } from '@skyux/i18n';
     selector: 'app-my-tile',
     templateUrl: './my-tile.component.html',
     styleUrls: ['./my-tile.component.scss'],
-    imports: [CommonModule, SkyAlertModule, SkyI18nModule]
+    imports: [SkyAlertModule, SkyI18nModule]
 })
 export class MyTileComponent implements OnInit {
   public environmentId: string | undefined;
