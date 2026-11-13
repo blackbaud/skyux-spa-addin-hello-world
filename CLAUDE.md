@@ -2,4 +2,4 @@
 
 # Coding instructions
 
-See [`AGENTS.md`](./AGENTS.md) at the repository root.
+@AGENTS.md

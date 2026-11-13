@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 
 import { AddinClientService } from '@blackbaud/skyux-lib-addin-client';
@@ -11,6 +11,7 @@ import { SkyAlertModule } from '@skyux/indicators';
     selector: 'app-my-box',
     templateUrl: './my-box.component.html',
     styleUrls: ['./my-box.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [SkyAlertModule]
 })
 export class MyBoxComponent implements OnInit {

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .github/hooks/scripts/skyux-best-practices-guard.cjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,18 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Router, provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 @Component({
-    // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'skyux-app-shell',
-    template: '<div class="shell-wrapper"><ng-content></ng-content></div>'
-})
-class MockShellComponent { }
-
-@Component({
     selector: 'app-mock-shell',
+    changeDetection: ChangeDetectionStrategy.Eager,
     template: '<div class="hello-test">Hello</div>'
 })
 class AppRouteTestComponent { }
@@ -21,17 +14,16 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule.withRoutes([
+        AppComponent,
+        AppRouteTestComponent
+      ],
+      providers: [
+        provideRouter([
           {
             component: AppRouteTestComponent,
             path: ''
           }
         ])
-      ],
-      declarations: [
-        MockShellComponent,
-        AppRouteTestComponent,
-        AppComponent
       ],
     }).compileComponents();
   });
@@ -42,12 +34,13 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should contain a router outlet wrapped by the app shell component', async () => {
+  it('should contain a router outlet', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const compiled = fixture.nativeElement;
 
     const router = TestBed.inject(Router);
     await router.navigate(['']);
+    fixture.detectChanges();
 
     expect(
       compiled.querySelector('.hello-test').textContent

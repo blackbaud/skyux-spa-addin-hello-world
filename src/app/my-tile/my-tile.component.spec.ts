@@ -1,16 +1,26 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('My-tile component', () => {
+import { SkyThemeService } from '@skyux/theme';
 
-  /**
-   * This configureTestingModule function imports SkyAppTestModule, which brings in all of
-   * the SKY UX modules and components in your application for testing convenience. If this has
-   * an adverse effect on your test performance, you can individually bring in each of your app
-   * components and the SKY UX modules that those components rely upon.
-   */
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-    });
+import { MyTileComponent } from './my-tile.component';
+
+describe('MyTileComponent', () => {
+  let component: MyTileComponent;
+  let fixture: ComponentFixture<MyTileComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MyTileComponent],
+      providers: [SkyThemeService]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(MyTileComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
