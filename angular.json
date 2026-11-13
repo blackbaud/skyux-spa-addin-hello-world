@@ -30,7 +30,8 @@
             "styles": [
               "node_modules/@skyux/theme/css/sky.css",
               "node_modules/@skyux/theme/css/themes/modern/styles.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/skyux15-compat.css"
             ],
             "scripts": []
           },
@@ -88,7 +89,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
+            "include": [
+              "src/**/*.spec.ts"
+            ],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
@@ -99,7 +102,8 @@
             ],
             "styles": [
               "node_modules/@skyux/theme/css/sky.css",
-              "node_modules/@skyux/theme/css/themes/modern/styles.css"
+              "node_modules/@skyux/theme/css/themes/modern/styles.css",
+              "src/app/skyux15-compat.css"
             ],
             "scripts": []
           }
