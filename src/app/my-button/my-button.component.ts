@@ -1,7 +1,8 @@
 import {
   Component,
   inject,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -19,6 +20,7 @@ import {
 
 @Component({
     selector: 'app-my-button',
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './my-button.component.html'
 })
 export class MyButtonComponent implements OnInit {

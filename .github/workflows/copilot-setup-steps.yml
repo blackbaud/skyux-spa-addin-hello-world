@@ -1,0 +1,41 @@
+# DO NOT MODIFY - This file is managed by SKY UX; edits will be overwritten on the next update.
+
+name: 'Copilot Setup Steps'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Configure npm registry
+        shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.COPILOT_AGENT_AZURE_DEVOPS_PAT }}
+        run: |
+          set -euo pipefail
+          : "${NPM_TOKEN:?NPM_TOKEN is required}"
+          echo "::add-mask::$NPM_TOKEN"
+          npm config set "@blackbaud-internal:registry=https://blackbaud.pkgs.visualstudio.com/_packaging/Blackbaud-npm/npm/registry/"
+          npm config set "//blackbaud.pkgs.visualstudio.com/_packaging/Blackbaud-npm/npm/registry/:_authToken=$NPM_TOKEN"
+          npm config set "//pkgs.dev.azure.com/blackbaud/_packaging/Blackbaud-npm/npm/registry/:_authToken=$NPM_TOKEN"
+
+      - name: Install SKY UX CLI
+        shell: bash
+        run: npm install --global --no-audit --no-fund @blackbaud-internal/skyux-cli@latest
+
+      - name: Install dependencies
+        shell: bash
+        run: npm ci --no-audit --no-fund

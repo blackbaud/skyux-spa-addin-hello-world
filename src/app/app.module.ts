@@ -12,12 +12,12 @@ import {
   BrowserAnimationsModule
 } from '@angular/platform-browser/animations';
 
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 @NgModule({
     bootstrap: [AppComponent], imports: [BrowserAnimationsModule,
         SkyPagesModule,
         BrowserModule,
         AppRoutingModule,
-        AppComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        AppComponent], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule { }

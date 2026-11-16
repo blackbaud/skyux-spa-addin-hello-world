@@ -1,7 +1,8 @@
 import {
   Component,
   inject,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 
@@ -23,6 +24,7 @@ import { SkyI18nModule } from '@skyux/i18n';
     selector: 'app-my-tile',
     templateUrl: './my-tile.component.html',
     styleUrls: ['./my-tile.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [SkyAlertModule, SkyI18nModule]
 })
 export class MyTileComponent implements OnInit {

@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { SkyThemeService } from '@skyux/theme';
+
 import { MyBoxComponent } from './my-box.component';
 
 describe('MyBoxComponent', () => {
@@ -8,7 +10,8 @@ describe('MyBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MyBoxComponent]
+      imports: [MyBoxComponent],
+      providers: [SkyThemeService]
     })
     .compileComponents();
 
